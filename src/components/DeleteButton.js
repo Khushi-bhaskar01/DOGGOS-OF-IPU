@@ -10,7 +10,7 @@ export default function DeleteButton({ dogId, dogName }) {
   const supabase = createClient()
 
   const handleDelete = async () => {
-    if (!confirm(`Are you sure you want to delete ${dogName || 'this dog'}?`)) {
+    if (!confirm(`Are you sure you want to delete ${dogName || 'this dog'}?\n\nThis action cannot be undone.`)) {
       return
     }
 
@@ -36,13 +36,15 @@ export default function DeleteButton({ dogId, dogName }) {
     <button
       onClick={handleDelete}
       disabled={loading}
-      className="px-4 py-2 rounded-lg font-medium text-sm disabled:opacity-50"
+      className="px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm disabled:opacity-50 hover:opacity-90 transition-opacity"
       style={{
         backgroundColor: 'var(--accent-coral)',
         color: 'white',
       }}
+      title="Delete dog"
     >
-      {loading ? '...' : '🗑️'}
+      <span className="hidden sm:inline">{loading ? 'Deleting...' : '🗑️ Delete'}</span>
+      <span className="sm:hidden">{loading ? '...' : '🗑️'}</span>
     </button>
   )
 }

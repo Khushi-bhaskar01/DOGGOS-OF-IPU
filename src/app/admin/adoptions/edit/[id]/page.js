@@ -3,8 +3,10 @@ import { redirect } from 'next/navigation'
 import DogForm from '@/components/DogForm'
 import Link from 'next/link'
 
-export default async function AddDogPage() {
+export default async function EditDogPage({ params }) {
   const supabase = await createClient()
+
+  const { id } = await params
 
   const {
     data: { user },
@@ -14,6 +16,16 @@ export default async function AddDogPage() {
     redirect('/admin/login')
   }
 
+  const { data: dog, error } = await supabase
+    .from('adoptions')
+    .select('*')
+    .eq('id', id)
+    .single()
+
+  if (error || !dog) {
+    redirect('/admin/adoptions')
+  }
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--base-white)' }}>
       <nav className="bg-white shadow-sm border-b" style={{ borderColor: 'var(--border-light)' }}>
@@ -21,16 +33,17 @@ export default async function AddDogPage() {
           <div className="flex justify-between items-center h-14 sm:h-16">
             <div className="flex items-center gap-2 sm:gap-3">
               <Link href="/admin" className="text-xl sm:text-2xl">🐶</Link>
-              <h1 className="text-base sm:text-xl font-bold" style={{ color: 'var(--text-dark)' }}>
-                Add New Dog
+              <h1 className="text-base sm:text-xl font-bold truncate" style={{ color: 'var(--text-dark)' }}>
+                Edit {dog.name}
               </h1>
             </div>
+
             <Link href="/admin/adoptions">
-              <button 
+              <button
                 className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium"
-                style={{ 
+                style={{
                   backgroundColor: 'var(--primary-teal)',
-                  color: 'white'
+                  color: 'white',
                 }}
               >
                 ← Back
@@ -41,7 +54,7 @@ export default async function AddDogPage() {
       </nav>
 
       <main className="max-w-3xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-6 md:py-8">
-        <DogForm />
+        <DogForm initialData={dog} isEdit />
       </main>
     </div>
   )
