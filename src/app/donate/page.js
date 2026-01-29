@@ -64,7 +64,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Right Card: Transparency */}
         <div className="card transparency-card">
           <h2>TRANSPARENCY & TRUST</h2>
           
@@ -73,7 +72,6 @@ export default function Home() {
               <img src="/qr.png" alt="QR Code" className="qr-img" />
             </div>
             <div className="payment-logos">
-              {/* Replace these src with your actual payment logo files */}
               <img src="/upi.png" alt="UPI" className="pay-logo" /> 
               <img src="/paytm.png" alt="Paytm" className="pay-logo" />
               <div className="small-logos">
@@ -82,11 +80,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* <div className="button-group">
-            <button className="btn-green">Donate via RazorPay</button>
-            <button className="btn-blue">Donate via RazorPay</button>
-          </div> */}
         </div>
       </section>
 
