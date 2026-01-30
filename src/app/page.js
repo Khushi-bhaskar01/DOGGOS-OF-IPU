@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Link from "next/link";
+
 
 export default function Home() {
   const titleRef = useRef(null);
@@ -57,6 +59,13 @@ export default function Home() {
         >
           Join as Volunteer 🤍
         </button>
+
+        <Link href="/join-us">
+  <button className="bg-white px-6 py-3 rounded-lg">
+    Join-Us
+  </button>
+</Link>
+
       </div>
     </main>
   );
