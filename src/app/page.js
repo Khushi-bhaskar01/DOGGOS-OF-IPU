@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 
 
+
 export default function Home() {
   const titleRef = useRef(null);
   const textRef = useRef(null);
@@ -42,12 +43,14 @@ export default function Home() {
       </p>
 
       <div ref={btnRef} className="flex gap-4">
-        <button
-          className="px-6 py-3 rounded-lg text-white text-lg hover:scale-105 transition"
-          style={{ backgroundColor: "var(--primary-teal)" }}
-        >
-          Adopt a Dog 🐶
-        </button>
+        <Link href="/adoption">
+          <button
+            className="px-6 py-3 rounded-lg text-white text-lg hover:scale-105 transition"
+            style={{ backgroundColor: "var(--primary-teal)" }}
+          >
+            Adopt a Dog 🐶
+          </button>
+        </Link>
 
         <button
           className="px-6 py-3 rounded-lg text-lg border hover:scale-105 transition"
