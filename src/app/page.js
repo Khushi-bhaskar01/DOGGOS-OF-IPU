@@ -7,7 +7,7 @@ import FeedingMap from "../components/FeedingMap";
 import HowToHelp from "../components/HowToHelp";
 import ContactSection from "../components/ContactSection";
 import { useEffect, useState } from "react";
-import LandingReveal from "../../components/LandingReveal";
+import LandingReveal from "../components/LandingReveal";
 
 
 
@@ -44,7 +44,7 @@ useEffect(() => {
 
     <main className="overflow-x-hidden">
       <Navbar />
-      <HeroSection />
+      {!showReveal && <HeroSection />}
       <AboutSection />
       <FeedingMap />
       <HowToHelp />

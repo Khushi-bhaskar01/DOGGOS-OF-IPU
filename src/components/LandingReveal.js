@@ -112,7 +112,7 @@ export default function LandingReveal({ onFinish }) {
         className="absolute text-6xl font-bold tracking-widest z-10 
                    top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-(--text-dark)"
       >
-        DOGOS IPU
+        DOGGOS OF IPU
       </div>
 
       {/* PAW TRAIL */}

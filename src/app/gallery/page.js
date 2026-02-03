@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
-
+import Navbar from "../../components/Navbar";
 
 /* ================= ICON IMPORTS ================= */
 
@@ -654,7 +654,7 @@ useEffect(() => {
 
     {/* divider */}
     <div className="mt-16 border-t border-white/30 pt-6 text-center text-sm text-white/80">
-      © 2026 DOOGOS IPU. All Rights Reserved.
+      © 2026 DOGGOS OF IPU. All Rights Reserved.
     </div>
 
   </div>
