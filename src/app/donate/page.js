@@ -1,6 +1,6 @@
 import React from 'react';
-import  "./style.css"
 
+import './donate.css';
 export default function Home() {
   return (
     <main>

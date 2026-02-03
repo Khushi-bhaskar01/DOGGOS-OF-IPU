@@ -1,49 +1,54 @@
-"use client"
 
-import Hero from '../../components/Hero';
-import AdoptSection from '../../components/AdoptSection';
-import ReportCase from '../../components/ReportCase';
-import WaysToHelp from '../../components/WaysToHelp';
-import MissionVision from '../../components/MissionVision';
-import Instagram from '../../components/Instagram';
-import RabiesCampus from '../../components/RabiesCampus';
-import CTASection from '../../components/CTASection';
-import Footer from '../../components/Footer';
-import LandingReveal from '../../components/LandingReveal';
-import { useEffect, useState } from 'react';
+"use client";
 
-export default function Home() {
+import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
+// import FeedingMap from "../components/FeedingMap";
+import HowToHelp from "../components/HowToHelp";
+import ContactSection from "../components/ContactSection";
+import { useEffect, useState } from "react";
+import LandingReveal from "../../components/LandingReveal";
 
+
+
+
+export default function HomePage() {
   const [showReveal, setShowReveal] = useState(false);
 
-  useEffect(() => {
-    const isReload =
-      performance.getEntriesByType("navigation")[0]?.type === "reload";
+useEffect(() => {
+  const hasSeen = sessionStorage.getItem("seenReveal");
 
-    const hasSeen = sessionStorage.getItem("seenReveal");
+  if (!hasSeen) {
+    setShowReveal(true);
+    sessionStorage.setItem("seenReveal", "true");
+  }
+  // Clear on refresh/close so it plays again next load
+    const clearReveal = () => {
+      sessionStorage.removeItem("seenReveal");
+    };
 
-    // Show if first visit OR refresh
-    if (!hasSeen || isReload) {
-      setShowReveal(true);
-      sessionStorage.setItem("seenReveal", "true");
-    }
-  }, []);
+    window.addEventListener("beforeunload", clearReveal);
 
+    return () => {
+      window.removeEventListener("beforeunload", clearReveal);
+    };
+  
+}, []);
   return (
-    <>
+     <>
       {showReveal && (
         <LandingReveal onFinish={() => setShowReveal(false)} />
       )}
 
-      <Hero />
-      <AdoptSection />
-      <ReportCase />
-      <WaysToHelp />
-      <MissionVision />
-      <Instagram />
-      <RabiesCampus />
-      <CTASection />
-      <Footer />
-    </>
+
+    <main className="overflow-x-hidden">
+      <HeroSection />
+      <AboutSection />
+      {/* <FeedingMap /> */}
+      <HowToHelp />
+      <ContactSection />
+    </main>
+      </>
+
   );
 }
