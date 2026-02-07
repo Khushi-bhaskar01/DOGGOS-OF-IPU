@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
-
+import Navbar from "../../components/Navbar";
 
 /* ================= ICON IMPORTS ================= */
 
@@ -19,6 +19,7 @@ import { MdMedicalServices } from "react-icons/md";
 export default function GalleryPage() {
 
   const [loading, setLoading] = useState(true);
+
 
 
 
@@ -116,7 +117,8 @@ const filteredItems =
 
   /* ================= HERO ANIMATION ================= */
 
-  useEffect(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
     gsap.from(".hero-anim", {
       y: 50,
       opacity: 0,
@@ -124,8 +126,10 @@ const filteredItems =
       stagger: 0.15,
       ease: "power3.out"
     });
-  }, []);
+  });
 
+  return () => ctx.revert();
+}, []);
   /* ================= CUSTOM CURSOR ================= */
 
   useEffect(() => {
@@ -331,6 +335,10 @@ const filteredItems =
 
   return (
       <div className="min-h-screen" style={{ backgroundColor: "var(--base-white)" }}>
+        <Navbar />
+
+
+
 
         {/* ================= HERo ================= */}
 
@@ -634,7 +642,7 @@ const filteredItems =
           className="inline-flex items-center gap-3 bg-white/20 backdrop-blur px-5 py-3 rounded-full hover:bg-white/30 transition"
         >
           <img
-            src="/gallery-section-images/insta-logo.png"
+            src="/insta-logo.png"
             className="w-8 h-8"
             alt="Instagram"
           />
@@ -646,7 +654,7 @@ const filteredItems =
 
     {/* divider */}
     <div className="mt-16 border-t border-white/30 pt-6 text-center text-sm text-white/80">
-      © 2026 DOOGOS IPU. All Rights Reserved.
+      © 2026 DOGGOS OF IPU. All Rights Reserved.
     </div>
 
   </div>
