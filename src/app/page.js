@@ -3,15 +3,16 @@
 
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
-// import FeedingMap from "../components/FeedingMap";
+import FeedingMap from "../components/FeedingMap";
 import HowToHelp from "../components/HowToHelp";
 import ContactSection from "../components/ContactSection";
 import { useEffect, useState } from "react";
-import LandingReveal from "../../components/LandingReveal";
+import LandingReveal from "../components/LandingReveal";
 
 
 
 
+import Navbar from "../components/Navbar";
 export default function HomePage() {
   const [showReveal, setShowReveal] = useState(false);
 
@@ -42,9 +43,10 @@ useEffect(() => {
 
 
     <main className="overflow-x-hidden">
-      <HeroSection />
+      <Navbar />
+      {!showReveal && <HeroSection />}
       <AboutSection />
-      {/* <FeedingMap /> */}
+      <FeedingMap />
       <HowToHelp />
       <ContactSection />
     </main>

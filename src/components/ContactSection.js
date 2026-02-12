@@ -43,7 +43,7 @@ export default function ContactSection() {
 
     {/* top title */}
     <div className="text-center mb-14">
-      <h2 className="text-5xl font-bold tracking-wide">DOOGOS IPU</h2>
+      <h2 className="text-5xl font-bold tracking-wide">DOGGOS IPU</h2>
       <p className="text-yellow-300 text-xl mt-2">
         Care. Rescue. Love.
       </p>
@@ -107,7 +107,7 @@ export default function ContactSection() {
 
     {/* divider */}
     <div className="mt-16 border-t border-white/30 pt-6 text-center text-sm text-white/80">
-      © 2026 DOOGOS IPU. All Rights Reserved.
+      © 2026 DOGGOS IPU. All Rights Reserved.
     </div>
 
   </div>

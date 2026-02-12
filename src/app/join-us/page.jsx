@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { FaInstagram, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function JoinUsPage() {
   const GOOGLE_FORM_URL =
@@ -9,8 +10,9 @@ export default function JoinUsPage() {
 
   return (
     <main className="w-full overflow-hidden">
+      <Navbar />
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-[#dff1f6] to-[#e8f7f3] py-20 px-6">
+      <section className="bg-linear-to-r from-[#dff1f6] to-[#e8f7f3] py-20 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div>
@@ -31,14 +33,14 @@ export default function JoinUsPage() {
 
             <div className="mt-6 flex gap-4">
               <a
-                href="https://forms.gle/bwrejAy9Ciofss3x7%5D%28https:/forms.gle/bwrejAy9Ciofss3x7%29"
+                href="#register"
                 className="bg-teal-500 text-white px-6 py-3 rounded-full font-medium hover:bg-teal-600 transition"
               >
                 Become a Volunteer
               </a>
 
               <a
-                href="#benefits"
+                href="https://chat.whatsapp.com/JFb6e4cQxqD81jUKbIxq63"
                 className="bg-white px-6 py-3 rounded-full font-medium border hover:bg-gray-50 transition"
               >
                 Join our Community
@@ -159,7 +161,7 @@ export default function JoinUsPage() {
             </p>
 
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeUydyWVHgWnfoNjU6uGaUtrlrRNvCN8izgGhxsBeyJGv03dg/viewform"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfCToT_UqS5d9LLcvg7GwZ3XuZqh-GGsBWfwBQ6s9raPVOdvg/viewform"
               target="_blank"
               className="block mt-6 bg-teal-500 text-white py-3 rounded-full font-medium hover:bg-teal-600 transition"
             >
@@ -171,91 +173,9 @@ export default function JoinUsPage() {
             </p>
           </div>
         </div>
-        {/* FOOTER  */}
-        <footer className="bg-[#fdeeee] px-6 pt-16 pb-6">
-          <div className="max-w-6xl mx-auto">
-            {/* Top Footer */}
-            <div className="grid md:grid-cols-2 gap-10 items-start">
-              {/* Left Section */}
-              <div>
-                <div className="flex items-center gap-4">
-                  <Image src="/dog.png" alt="Dog" width={70} height={70} />
-                  <h3 className="font-bold text-lg text-[#7a3e00]">
-                    DOOGOS <br /> IPU
-                  </h3>
-                </div>
-
-                <p className="mt-4 text-sm text-gray-700 max-w-sm">
-                  Help the life of our little paw friends. Contribute with a
-                  donation or help to adopt a pet.
-                </p>
-
-                <div className="mt-4 text-sm font-medium">
-                  <p className="cursor-pointer hover:underline">Privacy</p>
-                  <p className="cursor-pointer hover:underline">
-                    Terms and Condition
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Section */}
-              <div>
-                <h3 className="font-bold text-lg text-teal-700 mb-4">
-                  CONTACT US
-                </h3>
-
-                {/* Social Icons */}
-                <div className="flex gap-4 mb-4">
-                  {/* Instagram */}
-                  <a
-                    href="https://www.instagram.com/doggosofipu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    target="_blank"
-                    className="w-10 h-10 flex items-center justify-center bg-teal-500 rounded-full text-white hover:bg-teal-600 transition"
-                  >
-                    <FaInstagram size={18} />
-                  </a>
-
-                  {/* WhatsApp */}
-                  <a
-                    href="https://chat.whatsapp.com/JFb6e4cQxqD81jUKbIxq63](https://chat.whatsapp.com/JFb6e4cQxqD81jUKbIxq63)"
-                    target="_blank"
-                    className="w-10 h-10 flex items-center justify-center bg-teal-500 rounded-full text-white hover:bg-teal-600 transition"
-                  >
-                    <FaWhatsapp size={18} />
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                    href="#"
-                    target="_blank"
-                    className="w-10 h-10 flex items-center justify-center bg-teal-500 rounded-full text-white hover:bg-teal-600 transition"
-                  >
-                    <FaLinkedinIn size={18} />
-                  </a>
-                </div>
-
-                <p className="text-sm text-gray-700">
-                  <strong>EMAIL:</strong>
-                </p>
-
-                <p className="text-sm text-gray-700 mt-2">
-                  <strong>ADDRESS:</strong> Guru Gobind Singh <br />
-                  Indraprastha University, Sector-16C <br />
-                  Dwarka, New Delhi 110078
-                </p>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="my-5 border-gray-800" />
-
-            {/* Bottom */}
-            <p className="text-center text-sm text-gray-700">
-              Copyright © 2026 DOOGOS IPU. All Rights Reserved.
-            </p>
-          </div>
-        </footer>
+       
       </section>
+      <Footer />
     </main>
   );
 }
