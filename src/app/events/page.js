@@ -15,35 +15,12 @@ function page() {
 
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true);
+  const [isAddingMore, setIsAddingMore] = useState(false);
   const [error, setError] = useState(false);
   const [showCount, setShowCount] = useState(6);
   const jumpRef = useRef(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-
-  useEffect(() => {
-    if (!loading) {
-      const newCards = document.querySelectorAll(".event-card:not(.animated)");
-
-      if (newCards.length > 0) {
-        gsap.fromTo(
-          newCards,
-          { opacity: 0, y: 25 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            stagger: 0.08,
-            clearProps: 'transform',
-            onComplete: () => {
-              newCards.forEach(el => el.classList.add("animated"));
-            }
-          }
-        );
-      }
-    }
-  }, [loading, showCount]);
 
   useEffect(() => {
     if (!loading) {
@@ -103,30 +80,6 @@ function page() {
       stagger: 1.2,
     });
   }, []);
-
-
-  useEffect(() => {
-    if (!loading) {
-      const newCards = document.querySelectorAll(".event-card:not(.animated)");
-
-      if (newCards.length > 0) {
-        gsap.fromTo(
-          newCards,
-          { opacity: 0, y: 25 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            stagger: 0.08,
-            onComplete: () => {
-              newCards.forEach(el => el.classList.add("animated"));
-            }
-          }
-        );
-      }
-    }
-  }, [loading, showCount]);
 
 
   const scrollToEvents = () => {
@@ -328,19 +281,35 @@ function page() {
             {!loading && events.length > 0 && (
               <>
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-10 mb-10">
-                  {events.slice(0, showCount).map(event => (
+                  {events.slice(0, showCount).map((event, index) => (
                     <EventCard
                       key={event.id}
                       event={event}
+                      index={index % 6}
                       onCTAClick={(item) => setSelectedEvent(item)}
                     />
                   ))}
+
+                  {/* Show More Skeletons */}
+                  {isAddingMore && (
+                    <>
+                      <EventCardSkeleton />
+                      <EventCardSkeleton />
+                      <EventCardSkeleton />
+                    </>
+                  )}
                 </div>
 
-                {events.length > showCount && (
+                {events.length > showCount && !isAddingMore && (
                   <button
-                    onClick={() => setShowCount(showCount + 6)}
-                    className="px-8 py-3 rounded-3xl bg-[#042839] text-(--base-white) font-semibold"
+                    onClick={() => {
+                      setIsAddingMore(true);
+                      setTimeout(() => {
+                        setShowCount(showCount + 6);
+                        setIsAddingMore(false);
+                      }, 800);
+                    }}
+                    className="px-8 py-3 rounded-3xl bg-[#042839] text-(--base-white) font-semibold hover:bg-[#05385B] transition-colors"
                   >
                     Show More
                   </button>
