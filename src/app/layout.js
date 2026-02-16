@@ -22,7 +22,7 @@ export const metadata = {
     icon: "/favicon.png",
   },
   verification:{
-    google: "mpN46EYhcJ_3hH5G3ttDWSFaxSB_-_nsPfXUO-RX6hQ",
+    google: "TcaOhNRx_5DVErzGbsaF64h9uJNJUX5lZnrk0lraqVc",
   },
 };
 
