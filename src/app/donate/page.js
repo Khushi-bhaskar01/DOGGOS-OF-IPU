@@ -3,7 +3,9 @@
 import Image from "next/image";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
+import { useRef } from "react";
 export default function DonatePage() {
+  const qrRef = useRef(null);
   return (
     <main className="bg-white text-gray-800">
       <Navbar />
@@ -24,9 +26,13 @@ export default function DonatePage() {
             Support our furry friends
           </p>
 
-          <button className="mt-6 px-10 py-3 rounded-full bg-teal-700 text-white font-bold tracking-wide text-lg hover:bg-teal-800 transition">
-            DONATE NOW
-          </button>
+          <button
+              onClick={() => qrRef.current?.scrollIntoView({ behavior: "smooth" })}
+              className="mt-6 px-10 py-3 rounded-full bg-teal-700 text-white font-bold tracking-wide text-lg hover:bg-teal-800 transition"
+            >
+              DONATE NOW
+            </button>
+            
         </div>
       </section>
 
@@ -63,7 +69,7 @@ export default function DonatePage() {
         </div>
 
         {/* Transparency Card */}
-        <div className="w-full max-w-120 bg-[#eef1f3] border-2 border-gray-400 rounded-2xl p-8 text-center">
+        <div  ref={qrRef} className="w-full max-w-120 bg-[#eef1f3] border-2 border-gray-400 rounded-2xl p-8 text-center">
           <h2 className="text-sm font-bold tracking-wide mb-6">
             TRANSPARENCY & TRUST
           </h2>
