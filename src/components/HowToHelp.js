@@ -119,14 +119,14 @@ useEffect(() => {
           Every action counts. Join us in creating a safer, kinder campus for our four-legged friends.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
           {ways.map((way, index) => (
             <Link href={way.link} key={index}>
               <div
                 ref={(el) => (cardsRef.current[index] = el)}
                 className="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group"
                 style={{
-                  height: "300px",
+                  height: "200px",
                 }}
               >
                 {/* Background Image */}

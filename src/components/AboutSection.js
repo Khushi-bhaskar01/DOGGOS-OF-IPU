@@ -4,150 +4,141 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { IoPawSharp, IoSchoolSharp, IoCloseCircle } from "react-icons/io5";
-
+import { IoPawSharp } from "react-icons/io5";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutSection() {
   const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
-  const headingRef = useRef(null);
-  const descRef = useRef(null);
-  const missionRef = useRef(null);
-
-  useEffect(() => {
-  const ctx = gsap.context(() => {
-    // Heading
-    gsap.from(headingRef.current, {
-      y: 30,
-      duration: 1,
-      scrollTrigger: {
-        trigger: headingRef.current,
-        start: "top 80%",
-        once: true,
-      },
-    });
-
-    // Description
-    gsap.from(descRef.current, {
-      y: 20,
-      duration: 0.8,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: descRef.current,
-        start: "top 80%",
-        once: true,
-      },
-    });
-
-    // Stat cards
-    cardsRef.current.forEach((card, index) => {
-      if (!card) return;
-
-      gsap.from(card, {
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          once: true,
-        },
-      });
-    });
-
-    ScrollTrigger.refresh();
-  }, sectionRef);
-
-  return () => {
-    ctx.revert();
-    ScrollTrigger.getAll().forEach(t => t.kill());
-  };
-}, []);
-
+  const imagesRef = useRef(null);
 
   const stats = [
-    { number: "60+", label: "Dogs Vaccinated", image: "/stat1.jpeg" },
-    { number: "30+", label: "Dogs Sterilized", image: "/sterilized.JPG" },
-    { number: "6", label: "Dogs Adopted", image: "/stat3.jpg" },
-    { number: "300+", label: "Community Members", image: "/stat4.jpeg" },
     { number: "100%", label: "Rabies-Free Campus", image: "/rabies.JPG" },
+    { number: "300+", label: "Community Members", image: "/stat4.jpeg" },
+    { number: "6", label: "Dogs Adopted", image: "/stat3.jpg" },
+    { number: "30+", label: "Dogs Sterilized", image: "/sterilized.JPG" },
+    { number: "60+", label: "Dogs Vaccinated", image: "/stat1.jpeg" },
     { number: "7+", label: "Years of Service", image: "/stat6.jpg" },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(imagesRef.current.children, {
+        x: 80,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 px-4"
-      style={{ backgroundColor: "var(--base-white)" }}
-    >
+    <section ref={sectionRef} className="min-h-screen px-6 py-24 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <h2
-          ref={headingRef}
-          className="text-5xl md:text-6xl font-bold text-center mb-8"
-          style={{ color: "var(--text-dark)" }}
-        >
+
+        {/* Heading */}
+        <h2 className="text-5xl md:text-6xl font-bold text-center mb-16">
           About Us
-          <IoPawSharp className="ml-2 inline-block" style={{ color: "var(--primary-teal)" }} />
+          <IoPawSharp className="ml-2 inline-block text-teal-500" />
         </h2>
 
-        {/* Description */}
-        <p
-          ref={descRef}
-          className="text-center text-xl md:text-2xl max-w-4xl mx-auto mb-16 leading-relaxed"
-          style={{ color: "var(--text-gray)" }}
-        >
-          Doggos of IPU is a student-led animal welfare community working inside the IPU campus 
-          for the past <strong style={{ color: "var(--primary-teal)" }}>7+ years</strong>. What started small has now become a 
-          family of around <strong style={{ color: "var(--primary-teal)" }}>300 people</strong>, with <strong style={{ color: "var(--primary-teal)" }}>50+ active team members</strong> who 
-          consistently work towards peaceful coexistence between humans and dogs on campus.
-        </p>
+        <div className="grid md:grid-cols-2 gap-16 items-start">
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
-              className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
-              style={{ height: "280px" }}
-            >
-              {/* Background Image */}
-              <div className="absolute inset-0">
-                <Image
-                  src={stat.image}
-                  alt={stat.label}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+          {/* LEFT TEXT */}
+          <div className="text-lg md:text-xl leading-relaxed text-gray-600 space-y-6">
+            <p>
+              We are a passionate community dedicated to improving the lives of
+              campus dogs through vaccination, sterilization, adoption and
+              long-term care. Our mission is to build a safe and rabies-free
+              campus while creating compassion and awareness among students.
+            </p>
 
-              {/* Overlay */}
-              <div 
-                className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"
+            <p>
+              Over the years, our volunteers have worked tirelessly to create
+              a safe and compassionate environment where stray dogs are treated
+              with dignity and respect.
+            </p>
+
+            <p>
+              Our goal is simple — a healthy, rabies-free campus built on kindness,
+              awareness and collective responsibility.
+            </p>
+          </div>
+
+          {/* RIGHT GRID */}
+          <div
+            ref={imagesRef}
+            className="grid grid-cols-4 auto-rows-[110px] gap-4"          
+          >
+
+            {/* BIG IMAGE */}
+            <div className="col-span-4 row-span-2 relative rounded-2xl overflow-hidden group">
+              <Image
+                src={stats[0].image}
+                alt=""
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
               />
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
-                <div
-                  className="text-6xl font-bold mb-2 text-white"
-                >
-                  {stat.number}
-                </div>
-                <div
-                  className="text-xl font-semibold text-white"
-                >
-                  {stat.label}
-                </div>
-              </div>
+              <Overlay stat={stats[0]} />
             </div>
-          ))}
+
+            {/* MEDIUM IMAGES */}
+            <div className="col-span-2 relative rounded-2xl overflow-hidden group">
+              <Image
+                src={stats[1].image}
+                alt=""
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <Overlay stat={stats[1]} />
+            </div>
+
+            <div className="col-span-2 relative rounded-2xl overflow-hidden group">
+              <Image
+                src={stats[2].image}
+                alt=""
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <Overlay stat={stats[2]} />
+            </div>
+
+            {/* SMALL IMAGES */}
+            {stats.slice(3).map((stat, i) => (
+             <div
+               key={i}
+               className={`${
+                 i === 0 ? "col-start-2" : ""
+               } col-span-1 relative rounded-2xl overflow-hidden group`}
+             >
+               <Image
+                 src={stat.image}
+                 alt=""
+                 fill
+                 className="object-cover transition duration-500 group-hover:scale-105"
+               />
+               <Overlay stat={stat} />
+             </div>
+             ))}
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Overlay({ stat }) {
+  return (
+    <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+      <h3 className="text-xl font-bold">{stat.number}</h3>
+      <p className="text-sm">{stat.label}</p>
+    </div>
   );
 }

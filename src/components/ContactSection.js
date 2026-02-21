@@ -39,10 +39,10 @@ export default function ContactSection() {
         {/* dark overlay for readability */}
         <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="relative max-w-7xl mx-auto px-6 py-20  ">
+        <div className="relative max-w-7xl mx-auto px-6 py-10 md:py-10  ">
 
           {/* top title */}
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-5xl font-bold tracking-wide">DOGGOS OF IPU</h2>
             <p className="text-yellow-300 text-xl mt-2">
               Care. Rescue. Love.
@@ -140,7 +140,7 @@ export default function ContactSection() {
           </div>
 
           {/* divider */}
-          <div className="mt-16 border-t border-white/30 pt-6 text-center text-sm text-white/80">
+          <div className="mt-16 border-t border-white/30 pt-4 text-center text-sm text-white/80">
            Made by{" "}
             <Link
               href="https://dev-source-portfolio01.vercel.app/"
