@@ -54,22 +54,17 @@ export default function AboutSection() {
           {/* LEFT TEXT */}
           <div className="text-lg md:text-xl leading-relaxed text-gray-600 space-y-6">
             <p>
-              We are a passionate community dedicated to improving the lives of
-              campus dogs through vaccination, sterilization, adoption and
-              long-term care. Our mission is to build a safe and rabies-free
-              campus while creating compassion and awareness among students.
+              Doggos of IPU is a student-led animal welfare community that has been
+              working within the IPU campus for over 7 years. What began as a small
+              initiative has grown into a compassionate family of 300+ community
+              members, including 50+ active volunteers dedicated to ensuring peaceful
+              coexistence between students and campus dogs
             </p>
-
             <p>
-              Over the years, our volunteers have worked tirelessly to create
-              a safe and compassionate environment where stray dogs are treated
-              with dignity and respect.
-            </p>
-
-            <p>
-              Our goal is simple — a healthy, rabies-free campus built on kindness,
-              awareness and collective responsibility.
-            </p>
+             Our mission is simple yet powerful: to build a safe, compassionate, and
+              responsible campus where humans and doggos live together in harmony —
+              through care, awareness, and action 🐾
+                </p>
           </div>
 
           {/* RIGHT GRID */}
