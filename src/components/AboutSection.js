@@ -14,7 +14,7 @@ export default function AboutSection() {
 
   const stats = [
     { number: "100%", label: "Rabies-Free Campus", image: "/rabies.JPG" },
-    { number: "300+", label: "Community Members", image: "/stat4.jpeg" },
+    { number: "300+", label: "Community Members", image: "/community.jpeg" },
     { number: "6", label: "Dogs Adopted", image: "/stat3.jpg" },
     { number: "30+", label: "Dogs Sterilized", image: "/sterilized.JPG" },
     { number: "60+", label: "Dogs Vaccinated", image: "/stat1.jpeg" },
