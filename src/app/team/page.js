@@ -271,94 +271,97 @@ if (!mounted) return null;
 
 
   const teams = [
-    {
-      name: "Paw-Home Finder",
-      role: "Adoption & Foster",
-      bg: "#FFF4E8",
-      accent: "#F28C8C",
-      members: [
-        {
-          name: "Anjali",
-          role: "Adoption Lead",
-          image: "/team/anjali.jpeg",
-          desc: "Ensures every rescued dog finds a safe and loving forever home.",
-        },
-      ],
-    },
-    {
-      name: "Paw-Funding",
-      role: "Funds",
-      bg: "var(--earthy-cream)",
-      accent: "#4FB6B2",
-      members: [
-        { name: "Shivali", role: "", image: "/team/shivalii.png" },
-      ],
-    },
-    {
-      name: "Paw-parazzi",
-      role: "Social & Content",
-      bg: "#FFF1C1",
-      accent: "#4FB6B2",
-      members: [{ name: "Manvi Anand", image: "/team/manvi.jpeg" }],
-    },
-    {
-      name: "Paw-medics",
-      role: "Rescue & Medical",
-      bg: "var(--earthy-cream)",
-      accent: "#C89B6A",
-      members: [
-        { name: "Akshay Pratap Singh Chauhan", image: "/team/akshay.jpeg" },
-        { name: "Aditya Kr Sah", image: "/team/aditya.jpeg" },
-        { name: "Advika Chowdhary", image: "/team/advika.jpeg" },
-        { name: "Siya Gupta", image: "/team/siya.jpeg" },
-      ],
-    },
-    {
-      name: "Paw-Connect",
-      role: "Rescue & Medical",
-      bg: "var(--primary-sky)",
-      accent: "#C89B6A",
-      members: [
-        { name: "Vaishali Kaushik", image: "/team/vaishali.jpeg" },
-        { name: "Khwahish Kapil", image: "/team/khwahish.jpeg" },
-        { name: "Yash Singh", image: "/team/yash.jpeg" },
-        { name: "Anamika Singh", image: "/team/anamika.jpeg" },
-        { name: "Tamanna", image: "/team/tamanna.jpeg" },
-        { name: "Drishti", image: "/team/drishti.jpeg" },
-      ],
-    },
-    {
-      name: "Paw-ty Planners",
-      role: "Feeding Management",
-      bg: "var(--earthy-brown)",
-      accent: "#4FB6B2",
-      members: [
-        { name: "Samika Kumar", image: "/team/samika.jpeg" },
-        { name: "Aditi Mishra", image: "/team/aditi.jpeg" },
-        { name: "Gaurav Beniwal", image: "/team/gaurav.jpeg" },
-        { name: "Anika", image: "/team/anika.jpeg" },
-        { name: "Aayushi Bisaria", image: "/team/aayushi.jpeg" },
-        { name: "Ananya", image: "/team/ananya.jpeg" },
-        { name: "Sherodha Tripathi", image: "/team/Sherodha.jpeg" },
-      ],
-    },
-  ];
+  {
+    name: "Paw-ty Planners",
+    role: "Feeding Management",
+    bg: "var(--earthy-brown)",
+    accent: "#4FB6B2",
+    members: [
+      { name: "Anika", image: "/team/anika.jpeg" },
+      { name: "Sherodha Tripathi", image: "/team/Sherodha.jpeg" },
+      { name: "Aayushi Bisaria", image: "/team/aayushi.jpeg" },
+      { name: "Ananya", image: "/team/ananya.jpeg" },
+      { name: "Gaurav Beniwal", image: "/team/gaurav.jpeg" },
+      { name: "Samika Kumar", image: "/team/samika.jpeg" },
+      { name: "Aditi Mishra", image: "/team/aditi.jpeg" },
+    ],
+  },
+
+  {
+    name: "Paw-medics",
+    role: "Rescue & Medical",
+    bg: "var(--earthy-cream)",
+    accent: "#C89B6A",
+    members: [
+      { name: "Siya Gupta", image: "/team/siya.jpeg" },
+      { name: "Akshay Pratap Singh Chauhan", image: "/team/akshay.jpeg" },
+      { name: "Aditya Kr Sah", image: "/team/aditya.jpeg" },
+      { name: "Advika Chowdhary", image: "/team/advika.jpeg" },
+    ],
+  },
+  {
+    name: "Paw-parazzi & Paw-Connect",
+    role: "Social & Outreach",
+    bg: "#FFF1C1",
+    accent: "#4FB6B2",
+    members: [
+      { name: "Vaishali Kaushik", image: "/team/vaishali.jpeg" },
+      { name: "Khwahish Kapil", image: "/team/khwahish.jpeg" },
+      { name: "Yash Singh", image: "/team/yash.jpeg" },
+      { name: "Manvi Anand", image: "/team/manvi.jpeg" },
+      { name: "Anamika Singh", image: "/team/anamika.jpeg" },
+      { name: "Tamanna", image: "/team/tamanna.jpeg" },
+      { name: "Drishti", image: "/team/drishti.jpeg" },
+      { name: "Aakansha", image: "/team/Aakansha.jpeg" },
+      { name: "Bhumi", image: "/team/Bhumi.jpeg" },
+      { name: "Ambar", image: "/team/ambar.jpeg" },
+      { name: "Mehak", image: "/team/mehak.jpeg" },
+      { name: "Myiesha", image: "/team/myiesha.jpeg" },
+      { name: "Gunanshi", image: "/team/gunanshi.jpeg" },
+    ],
+  },
+
+  {
+    name: "Paw-Funding & Paw-Home Finder",
+    role: "Funds & Adoption",
+    bg: "var(--earthy-cream)",
+    accent: "#F28C8C",
+    members: [
+      {
+        name: "Anjali",
+        image: "/team/anjali.jpeg",
+      },
+      {
+        name: "Shivali",
+        image: "/team/shivalii.png",
+      },
+    ],
+  },
+];
 
   return (
     <section ref={containerRef} className="bg-[#F9FBFC]">
       <Navbar />
 
       {/* HERO */}
-      <div className="relative min-h-screen flex items-center justify-center px-4">
-        <Image src="/teamc.jpg" alt="Team" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/50" />
-        <h1 className="relative text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-center leading-tight px-2">
-          Meet Our Team
-        </h1>
-      </div>
+      {/* HERO */}
+<div className="relative min-h-screen flex items-center justify-center px-4">
+  <Image 
+    src="/meet.jpeg" 
+    alt="Team" 
+    fill 
+    className="object-cover object-[center_30%]" 
+    priority
+    quality={100}
+  />
+  <div className="absolute inset-0 bg-black/40" />
+  <h1 className="relative z-10 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-center leading-tight px-2 drop-shadow-2xl">
+    Meet Our Team
+  </h1>
+</div>
 
       {/* STICKY STACK */}
-      {teams.slice(1).map((team, idx) => (
+      {teams.map((team, idx) => (
         <div
           key={team.name}
           ref={(el) => (stackRef.current[idx] = el)}
@@ -380,156 +383,158 @@ if (!mounted) return null;
 <div className="emoji-cursor absolute top-0 left-0 pointer-events-none z-50 text-[38px] text-[#4FB6B2]">
 {teamIconMap[team.name] || <IoPawSharp />}
 </div>
-            {team.name === "Paw-Funding" ? (
-              
-              <>
-                <div className="hidden md:grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
-                  {/* LEFT — PAW HOME FINDER */}
-                  <div className="text-center">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 sm:mb-3">
-                      Paw-Home Finder
-                    </h2>
-                    <span className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full bg-[#F28C8C] text-white">
-                      Adoption & Foster
-                    </span>
+           {team.name === "Paw-Funding & Paw-Home Finder" ? (
+  <>
+    <div className="hidden md:grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+      {/* LEFT — PAW HOME FINDER */}
+      <div className="text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 sm:mb-3">
+          Paw-Home Finder
+        </h2>
+        <span className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full bg-[#F28C8C] text-white">
+          Adoption & Foster
+        </span>
 
-                    <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-lg
-      transition-all duration-300 ease-out
-      hover:-translate-y-2
-      hover:shadow-2xl
-      hover:rotate-[0.5deg]
-      active:scale-[0.98] overflow-hidden">
-                      <div className="relative aspect-3/4">
-                        <Image
-                          src={teams[0].members[0].image}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-3 sm:p-4">
-                        <h4 className="font-bold text-sm sm:text-base">Anjali</h4>
-                      </div>
-                    </div>
-                  </div>
+        <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-lg
+transition-all duration-300 ease-out
+hover:-translate-y-2
+hover:shadow-2xl
+hover:rotate-[0.5deg]
+active:scale-[0.98] overflow-hidden">
+          <div className="relative aspect-3/4">
+            <Image
+              src={team.members?.find(m => m.name === "Anjali")?.image || "/team/anjali.jpeg"}
+              alt="Anjali"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-3 sm:p-4">
+            <h4 className="font-bold text-sm sm:text-base">
+              {team.members?.find(m => m.name === "Anjali")?.name || "Anjali"}
+            </h4>
+          </div>
+        </div>
+      </div>
 
-                  {/* RIGHT — PAW FUNDING */}
-                  <div className="text-center">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 sm:mb-3">
-                      Paw-Funding
-                    </h2>
-                    <span
-                      className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full text-white"
-                      style={{ background: team.accent }}
-                    >
-                      Funds
-                    </span>
+      {/* RIGHT — PAW FUNDING */}
+      <div className="text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 sm:mb-3">
+          Paw-Funding
+        </h2>
+        <span
+          className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full text-white"
+          style={{ background: team.accent }}
+        >
+          Funds
+        </span>
 
-                    <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-lg
-      transition-all duration-300 ease-out
-      hover:-translate-y-2
-      hover:shadow-2xl
-      hover:rotate-[0.5deg]
-      active:scale-[0.98] overflow-hidden">
-                      <div className="relative aspect-3/4">
-                        <Image
-                          src={team.members[0].image}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-3 sm:p-4">
-                        <h4 className="font-bold text-sm sm:text-base">{team.members[0].name}</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-lg
+transition-all duration-300 ease-out
+hover:-translate-y-2
+hover:shadow-2xl
+hover:rotate-[0.5deg]
+active:scale-[0.98] overflow-hidden">
+          <div className="relative aspect-3/4">
+            <Image
+              src={team.members?.find(m => m.name === "Shivali")?.image || "/team/shivalii.png"}
+              alt="Shivali"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-3 sm:p-4">
+            <h4 className="font-bold text-sm sm:text-base">
+              {team.members?.find(m => m.name === "Shivali")?.name || "Shivali"}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                {/* MOBILE CAROUSEL */}
-                <div className="md:hidden">
-                  {/* PAW HOME FINDER */}
-                  <div className={`text-center transition-opacity duration-300 ${pawFundingIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
-                    <h2 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
-                      Paw-Home Finder
-                    </h2>
-                    <span className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full bg-[#F28C8C] text-white">
-                      Adoption & Foster
-                    </span>
+    {/* MOBILE CAROUSEL */}
+    <div className="md:hidden">
+      {/* PAW HOME FINDER */}
+      <div className={`text-center transition-opacity duration-300 ${pawFundingIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
+        <h2 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
+          Paw-Home Finder
+        </h2>
+        <span className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full bg-[#F28C8C] text-white">
+          Adoption & Foster
+        </span>
 
-                    <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] bg-white rounded-xl sm:rounded-2xl shadow-lg
-      transition-all duration-300 ease-out
-      hover:-translate-y-2
-      hover:shadow-2xl
-      hover:rotate-[0.5deg]
-      active:scale-[0.98] overflow-hidden">
-                      <div className="relative aspect-3/4">
-                        <Image
-                          src={teams[0].members[0].image}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-3 sm:p-4">
-                        <h4 className="font-bold text-sm sm:text-base">Anjali</h4>
-                      </div>
-                    </div>
-                  </div>
+        <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] bg-white rounded-xl sm:rounded-2xl shadow-lg
+transition-all duration-300 ease-out
+hover:-translate-y-2
+hover:shadow-2xl
+hover:rotate-[0.5deg]
+active:scale-[0.98] overflow-hidden">
+          <div className="relative aspect-3/4">
+            <Image
+              src={team.members?.find(m => m.name === "Anjali")?.image || "/team/anjali.jpeg"}
+              alt="Anjali"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-3 sm:p-4">
+            <h4 className="font-bold text-sm sm:text-base">Anjali</h4>
+          </div>
+        </div>
+      </div>
 
-                  {/* PAW FUNDING */}
-                  <div className={`text-center transition-opacity duration-300 ${pawFundingIndex === 1 ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
-                    <h2 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
-                      Paw-Funding
-                    </h2>
-                    <span
-                      className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full text-white"
-                      style={{ background: team.accent }}
-                    >
-                      Funds
-                    </span>
+      {/* PAW FUNDING */}
+      <div className={`text-center transition-opacity duration-300 ${pawFundingIndex === 1 ? 'opacity-100 block' : 'opacity-0 hidden'}`}>
+        <h2 className="text-2xl sm:text-3xl font-black mb-2 sm:mb-3">
+          Paw-Funding
+        </h2>
+        <span
+          className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 text-sm sm:text-base rounded-full text-white"
+          style={{ background: team.accent }}
+        >
+          Funds
+        </span>
 
-                    <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] bg-white rounded-xl sm:rounded-2xl shadow-lg
-      transition-all duration-300 ease-out
-      hover:-translate-y-2
-      hover:shadow-2xl
-      hover:rotate-[0.5deg]
-      active:scale-[0.98] overflow-hidden">
-                      <div className="relative aspect-3/4">
-                        <Image
-                          src={team.members[0].image}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-3 sm:p-4">
-                        <h4 className="font-bold text-sm sm:text-base">{team.members[0].name}</h4>
-                      </div>
-                    </div>
-                  </div>
+        <div className="mx-auto w-full max-w-[200px] sm:max-w-[240px] bg-white rounded-xl sm:rounded-2xl shadow-lg
+transition-all duration-300 ease-out
+hover:-translate-y-2
+hover:shadow-2xl
+hover:rotate-[0.5deg]
+active:scale-[0.98] overflow-hidden">
+          <div className="relative aspect-3/4">
+            <Image
+              src={team.members?.find(m => m.name === "Shivali")?.image || "/team/shivalii.png"}
+              alt="Shivali"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-3 sm:p-4">
+            <h4 className="font-bold text-sm sm:text-base">Shivali</h4>
+          </div>
+        </div>
+      </div>
 
-                  {/* MOBILE NAVIGATION BUTTONS */}
-                  <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 ">
-                    <button
-                      disabled={pawFundingIndex === 0}
-                      onClick={() => setPawFundingIndex(0)}
-                      className="px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base rounded-full bg-white shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all min-w-[80px] sm:min-w-[100px]"
-                    >
-                      ‹ Prev
-                    </button>
+      {/* MOBILE NAVIGATION BUTTONS */}
+      <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 ">
+        <button
+          disabled={pawFundingIndex === 0}
+          onClick={() => setPawFundingIndex(0)}
+          className="px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base rounded-full bg-white shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all min-w-[80px] sm:min-w-[100px]"
+        >
+          ‹ Prev
+        </button>
 
-                    <button
-                      disabled={pawFundingIndex === 1}
-                      onClick={() => setPawFundingIndex(1)}
-                      className=" px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base rounded-full bg-white shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all min-w-[80px] sm:min-w-[100px] "
-                    >
-                      Next ›
-                    </button>
-                  </div>
-                </div>
-              </>
-            ) : (
+        <button
+          disabled={pawFundingIndex === 1}
+          onClick={() => setPawFundingIndex(1)}
+          className=" px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base rounded-full bg-white shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all min-w-[80px] sm:min-w-[100px] "
+        >
+          Next ›
+        </button>
+      </div>
+    </div>
+  </>           ) : (
               <>
                 {/* NORMAL TEAMS */}
                 <div className="text-center mb-8 sm:mb-10 md:mb-14">
@@ -544,7 +549,7 @@ if (!mounted) return null;
                   </span>
                 </div>
                 {(() => {
-  const currentPage = page[idx] || 0;
+  const currentPage = page[idx] ?? 0;
   const start = currentPage * itemsPerPage;
   const visibleMembers = team.members.slice(
     start,
@@ -599,7 +604,7 @@ key={`${team.name}-${m.name}`}
 
 {/* PAGINATION BUTTONS */}
 {/* Desktop: Paw-Connect and Paw-ty Planners only */}
-{(team.name === "Paw-Connect" ||
+{(team.name === "Paw-parazzi & Paw-Connect" ||
   team.name === "Paw-ty Planners") && (
   <div className="hidden md:flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
     <button
@@ -632,7 +637,7 @@ key={`${team.name}-${m.name}`}
 
 {/* Mobile: Paw-medics, Paw-Connect, and Paw-ty Planners */}
 {(team.name === "Paw-medics" ||
-  team.name === "Paw-Connect" ||
+  team.name === "Paw-parazzi & Paw-Connect" ||
   team.name === "Paw-ty Planners") && (
   <div className="md:hidden flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
     <button

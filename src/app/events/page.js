@@ -158,7 +158,7 @@ function page() {
             </div>
 
             <div ref={jumpRef} className='rounded-full border-10 border-white shadow-2xl overflow-hidden size-64 lg:size-105 our-hero z-10'>
-              <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&q=80&w=800" alt="Our Hero"
+              <img src="/eventsss.jpeg" alt="Our Hero"
                 className='h-full w-full object-cover '
               />
 

@@ -47,7 +47,7 @@ function HowItWorksSection() {
                     </div>
                     <h3 className="mb-2 text-xl font-semibold">Report the Case</h3>
                     <p className="text-sm text-(--text-gray)">
-                      Call our helpline or message us with the location and condition.
+                      Message us with the location and condition.
                     </p>
                   </div>
                   <div className='pt-8 hidden md:block text-(--earthy-brown)'>→</div>
