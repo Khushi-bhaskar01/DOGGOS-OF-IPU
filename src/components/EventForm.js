@@ -100,9 +100,12 @@ export default function EventForm({ initialData = null, isEdit = false }) {
 
     try {
       // Validate date
-      if (new Date(formData.date) < new Date().setHours(0, 0, 0, 0)) {
-        throw new Error('Event date cannot be in the past')
-      }
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+
+      if (!isEdit && new Date(formData.date) < today) {
+      throw new Error('Event date cannot be in the past')
+    }
 
       // Upload image if new one selected
       const imageUrl = await uploadImage()
