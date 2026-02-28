@@ -100,7 +100,15 @@ const EventDetail = ({ event, onClose }) => {
             window.history.back();
         }
     };
+   const formatDate = (dateString) => {
+    if (!dateString) return null;
 
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-IN', options);
+};
+
+const formattedDate = formatDate(event?.date);
+const formattedEndDate = formatDate(event?.end_date);
     if (!event) return null;
 
     return (
@@ -154,18 +162,24 @@ const EventDetail = ({ event, onClose }) => {
                                     </div>
                                     <div>
                                         <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Date</p>
-                                        <p className="font-bold text-gray-700">{event.date}</p>
+                                        <p className="font-bold text-gray-700">
+                                            {formattedEndDate && formattedEndDate !== formattedDate
+                                                ? `${formattedDate} to ${formattedEndDate}`
+                                                : formattedDate}
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <div className="p-2 rounded-lg bg-orange-50 text-(--accent-coral)">
-                                        <Clock size={18} />
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Time</p>
-                                        <p className="font-bold text-gray-700">{event.time}</p>
-                                    </div>
-                                </div>
+                                {event.time?.trim() && (
+    <div className="flex items-center gap-3">
+        <div className="p-2 rounded-lg bg-orange-50 text-(--accent-coral)">
+            <Clock size={18} />
+        </div>
+        <div>
+            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Time</p>
+            <p className="font-bold text-gray-700">{event.time}</p>
+        </div>
+    </div>
+)}
                                 <div className="flex items-center gap-3">
                                     <div className="p-2 rounded-lg bg-slate-100 text-gray-600">
                                         <MapPin size={18} />

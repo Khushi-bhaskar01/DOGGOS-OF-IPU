@@ -12,6 +12,7 @@ export default function EventForm({ initialData = null, isEdit = false }) {
     title: initialData?.title || '',
     description: initialData?.description || '',
     date: initialData?.date || '',
+    end_date: initialData?.end_date || '',
     time: initialData?.time || '',
     location: initialData?.location || '',
     event_type: initialData?.event_type || 'general',
@@ -100,21 +101,41 @@ export default function EventForm({ initialData = null, isEdit = false }) {
 
     try {
       // Validate date
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
+      // Validate dates
+const today = new Date()
+today.setHours(0, 0, 0, 0)
 
-      if (!isEdit && new Date(formData.date) < today) {
-      throw new Error('Event date cannot be in the past')
-    }
+const start = new Date(formData.date)
+start.setHours(0, 0, 0, 0)
+
+const end = formData.end_date
+  ? new Date(formData.end_date)
+  : start
+
+end.setHours(0, 0, 0, 0)
+
+// Prevent past start date when creating
+if (!isEdit && start < today) {
+  throw new Error('Event date cannot be in the past')
+}
+
+// End date cannot be before start date
+if (formData.end_date && end < start) {
+  throw new Error('End date cannot be before start date')
+}
+
 
       // Upload image if new one selected
       const imageUrl = await uploadImage()
 
       const eventData = {
-        ...formData,
-        image_url: imageUrl,
-        max_participants: formData.max_participants ? parseInt(formData.max_participants) : null
-      }
+  ...formData,
+  
+  image_url: imageUrl,
+  date: formData.date || null,
+  end_date: formData.end_date || null,
+  max_participants: formData.max_participants ? parseInt(formData.max_participants) : null
+}
 
       if (isEdit) {
         const { error: updateError } = await supabase
@@ -197,36 +218,46 @@ export default function EventForm({ initialData = null, isEdit = false }) {
         </div>
 
         {/* Date & Time */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-dark)' }}>
-              Date *
-            </label>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 text-sm sm:text-base"
-              style={{ borderColor: 'var(--border-light)', color: 'var(--text-dark)' }}
-            />
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+  <div>
+    <label className="block text-sm font-medium mb-2">
+      Start Date 
+    </label>
+    <input
+      type="date"
+      name="date"
+      value={formData.date}
+      onChange={handleChange}
+      className="w-full px-4 py-3 border rounded-lg"
+    />
+  </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-dark)' }}>
-              Time
-            </label>
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 text-sm sm:text-base"
-              style={{ borderColor: 'var(--border-light)', color: 'var(--text-dark)' }}
-            />
-          </div>
-        </div>
+  <div>
+    <label className="block text-sm font-medium mb-2">
+      End Date
+    </label>
+    <input
+      type="date"
+      name="end_date"
+      value={formData.end_date}
+      onChange={handleChange}
+      className="w-full px-4 py-3 border rounded-lg"
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-2">
+      Time
+    </label>
+    <input
+      type="time"
+      name="time"
+      value={formData.time}
+      onChange={handleChange}
+      className="w-full px-4 py-3 border rounded-lg"
+    />
+  </div>
+</div>
 
         {/* Location */}
         <div>

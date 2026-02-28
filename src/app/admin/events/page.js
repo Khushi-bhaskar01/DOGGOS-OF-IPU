@@ -130,31 +130,33 @@ export default async function EventsPage() {
                     </h3>
 
                     <div className="space-y-2 text-sm text-(--text-gray) mb-3">
-                      <p className="flex items-center gap-2">
-                        <FaCalendarAlt />
-                        {eventDate.toDateString()}
-                      </p>
+                      {event.date && (
+                     <p className="flex items-center gap-2">
+                       <FaCalendarAlt />
+                       {new Date(event.date).toDateString()}
+                     </p>
+                   )}
 
-                      {event.time && (
-                        <p className="flex items-center gap-2">
-                          <FaClock />
-                          {event.time}
-                        </p>
-                      )}
+                                         {event.time && (
+                       <p className="flex items-center gap-2">
+                         <FaClock />
+                         {event.time}
+                       </p>
+                     )}
 
-                      {event.location && (
-                        <p className="flex items-center gap-2 truncate">
-                          <FaMapMarkerAlt />
-                          <span className="truncate">{event.location}</span>
-                        </p>
-                      )}
+                                         {event.location && (
+                       <p className="flex items-center gap-2 truncate">
+                         <FaMapMarkerAlt />
+                         <span className="truncate">{event.location}</span>
+                       </p>
+                     )}
 
-                      {event.max_participants && (
-                        <p className="flex items-center gap-2">
-                          <FaUsers />
-                          Max {event.max_participants} participants
-                        </p>
-                      )}
+                                         {event.max_participants && (
+                       <p className="flex items-center gap-2">
+                         <FaUsers />
+                         Max {event.max_participants} participants
+                       </p>
+                     )}
                     </div>
 
                     {event.description && (

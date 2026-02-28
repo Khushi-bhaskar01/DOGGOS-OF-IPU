@@ -37,7 +37,15 @@ function EventCard({ event, onCTAClick, index = 0 }) {
         const timeout = setTimeout(() => setIsRevealed(true), 100);
         return () => clearTimeout(timeout);
     }, []);
+const formatDate = (dateString) => {
+    if (!dateString) return null;
 
+    const options = { day: 'numeric', month: 'short' };
+    return new Date(dateString).toLocaleDateString('en-IN', options);
+};
+
+const formattedDate = formatDate(event?.date);
+const formattedEndDate = formatDate(event?.end_date);
     return (
         <div
             style={{ transitionDelay: hasEntered ? '0ms' : `${index * 100}ms` }}
@@ -71,10 +79,11 @@ function EventCard({ event, onCTAClick, index = 0 }) {
             {/* Event Details */}
             <div className='flex flex-col justify-start items-center space-y-2 mb-5 w-full'>
                 {/* Event Date */}
-                <div className='w-full flex justify-start items-center gap-2'>
-                    <Calendar className='size-4 text-(--primary-teal)' />
-                    <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>{event.date}</span>
-                </div>
+                <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>
+    {formattedEndDate && formattedEndDate !== formattedDate
+        ? `${formattedDate} - ${formattedEndDate}`
+        : formattedDate}
+</span>
 
                 {/* Event Location */}
                 <div className='w-full flex justify-start items-center gap-2'>
@@ -83,10 +92,14 @@ function EventCard({ event, onCTAClick, index = 0 }) {
                 </div>
 
                 {/* Event Timing */}
-                <div className='w-full flex justify-start items-center gap-2'>
-                    <Clock className='size-4 text-(--secondary-yellow)' />
-                    <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>{event.time}</span>
-                </div>
+                 {event.time && (
+                     <div className='w-full flex justify-start items-center gap-2'>
+                         <Clock className='size-4 text-(--secondary-yellow)' />
+                         <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>
+                             {event.time}
+                         </span>
+                     </div>
+                )}
             </div>
 
             {/* CTA Button */}
