@@ -211,7 +211,7 @@ function page() {
           {/* Heading */}
           <div className='w-full flex items-center justify-center'>
             <div className='relative'>
-              <header className='w-full text-3xl md:text-5xl font-bold py-4 text-center md:text-left'>Upcoming Events</header>
+              <header className='w-full text-3xl md:text-5xl font-bold py-4 text-center md:text-left'>Events</header>
 
               {/* Underline */}
               <div className='h-1 w-1/4 flex items-center justify-center absolute bottom-0 left-1/2 -translate-x-1/2 rounded-xl bg-(--secondary-yellow)'></div>
