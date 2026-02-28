@@ -309,6 +309,7 @@ if (!mounted) return null;
       { name: "Khwahish Kapil", image: "/team/khwahish.jpeg" },
       { name: "Yash Singh", image: "/team/yash.jpeg" },
       { name: "Manvi Anand", image: "/team/manvi.jpeg" },
+      { name: "Sarah", image: "/team/sarah.jpeg" },
       { name: "Anamika Singh", image: "/team/anamika.jpeg" },
       { name: "Tamanna", image: "/team/tamanna.jpeg" },
       { name: "Drishti", image: "/team/drishti.jpeg" },
