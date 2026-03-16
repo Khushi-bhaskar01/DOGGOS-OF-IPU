@@ -346,11 +346,11 @@ if (!mounted) return null;
     members: [
       {
         name: "Anjali",
-        image: "/team/anjali_2.png",
+        image: "/team/anjali_2.PNG",
       },
       {
         name: "Khushi",
-        image: "/team/khushi.jpeg",
+        image: "/team/Khushi.jpeg",
       },
     ],
   },
