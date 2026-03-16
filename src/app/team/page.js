@@ -338,6 +338,22 @@ if (!mounted) return null;
       },
     ],
   },
+  {
+    name: "Our Alumni",
+    role: "Former Members",
+    bg: "#FFF1C1",
+    accent: "#C89B6A",
+    members: [
+      {
+        name: "Anjali",
+        image: "/team/anjali_2.png",
+      },
+      {
+        name: "Khushi",
+        image: "/team/khushi.jpeg",
+      },
+    ],
+  },
 ];
 
   return (
@@ -606,7 +622,8 @@ key={`${team.name}-${m.name}`}
 {/* PAGINATION BUTTONS */}
 {/* Desktop: Paw-Connect and Paw-ty Planners only */}
 {(team.name === "Paw-parazzi & Paw-Connect" ||
-  team.name === "Paw-ty Planners") && (
+  team.name === "Paw-ty Planners" || 
+  team.name === "Our Alumni") && (
   <div className="hidden md:flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
     <button
       disabled={currentPage === 0}
@@ -639,7 +656,9 @@ key={`${team.name}-${m.name}`}
 {/* Mobile: Paw-medics, Paw-Connect, and Paw-ty Planners */}
 {(team.name === "Paw-medics" ||
   team.name === "Paw-parazzi & Paw-Connect" ||
-  team.name === "Paw-ty Planners") && (
+  team.name === "Paw-ty Planners" ||
+  team.name === "Our Alumni"
+  ) && (
   <div className="md:hidden flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
     <button
       disabled={currentPage === 0}
